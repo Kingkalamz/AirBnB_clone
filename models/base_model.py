@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 
+"""Defines the BaseModel class."""
+
 import models
 from uuid import uuid4
 from datetime import datetime
-
-"""Defines the BaseModel class."""
 
 
 class BaseModel:
     """Represent the BaseModel class of the AirBnB project
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializes a new BameModel
         """
 
@@ -18,6 +18,13 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
+
+        if kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, time_format)
+                else:
+                    self.__dict__[key] = value
 
         def save(self):
             """Updates updated_at with the current datetime"""
