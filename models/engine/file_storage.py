@@ -2,11 +2,11 @@
 """Defines the FileStorage class."""
 import json
 from models.city import City
-from models.user import Usea
+from models.user import User
 from models.place import Place
 from models.state import State
 from models.review import Review
-from models.amenity import Amenityr
+from models.amenity import Amenity
 from models.base_model import BaseModel
 
 
