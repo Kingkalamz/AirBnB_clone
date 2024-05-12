@@ -4,6 +4,7 @@ import re
 import cmd
 from shlex import split
 from models import storage
+from models.user import User
 from models.base_model import BaseModel
 
 
@@ -29,7 +30,8 @@ class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter"""
     prompt = "(hbnb) "
     __classes = {
-            "BaseModel"
+            "BaseModel",
+            "User"
             }
 
     def emptyline(self):
